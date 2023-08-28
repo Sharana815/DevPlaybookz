@@ -1,0 +1,11 @@
+--- # install pkg
+- hosts: webservers
+  user: ansible
+  connection: ssh
+  become: yes
+
+  tasks:
+    - name: installing docker s/w
+      yum:
+        name: docker
+        state: installed

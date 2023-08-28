@@ -1,0 +1,10 @@
+--- #deleting the file
+   - name: deleting the file
+     hosts: all
+     become: yes
+
+     tasks:
+       - name: deleting file
+         file:
+           path: /home/ansible/Sharana
+           state: absent

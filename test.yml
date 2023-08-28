@@ -1,0 +1,8 @@
+--- #this is my demo plybook
+- hosts: webservers
+  task:
+    - name: Installing httpd on webservers
+      action: yum pkg=httpd state=installed
+
+    - name: Installing mysql on webservers
+      action: yum pkg=mysql state=installed

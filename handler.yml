@@ -1,0 +1,17 @@
+--- #my handlers playbook
+
+- hosts: webservers
+  user: ansible
+  connection: ssh
+  become: true
+
+
+  tasks:
+    - name: installing httpd into webservers
+      action: yum name=httpd state=present
+      notify: start httpd service
+
+
+  handlers:
+    - name: start httpd service
+      action: service name=httpd state=started

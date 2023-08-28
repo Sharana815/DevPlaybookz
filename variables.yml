@@ -1,0 +1,12 @@
+--- 
+- name: variables section
+  hosts: webservers
+  become: yes
+
+  vars:
+    user: funny
+
+  tasks:
+    - name: creating a user {{user}}
+      user:
+        name: "{{user}}"

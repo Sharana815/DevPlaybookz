@@ -1,0 +1,11 @@
+---
+- name: copying a file
+  hosts: webservers
+  become: yes
+
+  tasks:
+    - name: copying the files from src to dest
+      copy:
+        src: /home/ansible/abcxyz
+        dest: /home/ansible
+        owner: sharana

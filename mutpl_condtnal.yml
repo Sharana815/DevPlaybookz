@@ -1,0 +1,37 @@
+--- #multiple conditions
+- hosts: webservers
+  become: yes
+  connection: ssh
+
+  tasks:
+    - name: installing httpd
+      yum:
+        name: httpd
+        state: installed
+      when: ansible_os_family == "RedHat"
+
+
+    - name: start httpd service
+      service:
+        name: httpd
+        state: started
+      when: ansible_os_family == "RedHat"
+
+    - name: installing apache2 software
+      apt:
+        name: apache2
+        state: present
+      when: ansible_os_family == "Debian"
+
+
+    - name: start apche service
+      service:
+        name: apache
+        state: started
+      when: ansible_os_family == "Debian"
+
+    - name: copy index.html
+      copy:
+        src: /home/ansible/index.html
+        dest: /var/www/html
+    

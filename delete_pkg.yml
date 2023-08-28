@@ -1,0 +1,11 @@
+--- # deleting  pkg
+- hosts: webservers
+  user: ansible
+  connection: ssh
+  become: yes
+
+  tasks:
+    - name: deleting docker s/w
+      yum:
+        name: docker
+        state: absent

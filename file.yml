@@ -1,0 +1,15 @@
+--- # creating a file
+- hosts: all
+  become: yes
+  user: ansible
+  connection: ssh
+
+  tasks:
+    - name: creating a file with ansible playbook
+      file: path=/tmp/sharana.txt state=touch
+        
+    - name: creating a directory with ansible playbook
+      file: path=/tmp/sgdir state=directory
+
+    - name: copying a file
+      copy: src=./mytestfl dest=/home/ansible
